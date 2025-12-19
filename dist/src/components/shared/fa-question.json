@@ -1,0 +1,27 @@
+{
+    "collectionName": "components_shared_fa_questions",
+    "info": {
+        "displayName": "FAQuestion"
+    },
+    "options": {},
+    "attributes": {
+        "question": {
+            "type": "string",
+            "required": true
+        },
+        "answer": {
+            "type": "text",
+            "required": true,
+            "unique": false
+        },
+        "requiresAuth": {
+            "type": "boolean"
+        },
+        "relatedLinks": {
+            "type": "component",
+            "component": "shared.link",
+            "repeatable": false
+        }
+    },
+    "config": {}
+}
