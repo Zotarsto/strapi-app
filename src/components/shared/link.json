@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_links",
+  "info": {
+    "displayName": "FAQLink"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "redirect": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "route",
+        "url"
+      ]
+    }
+  },
+  "config": {}
+}

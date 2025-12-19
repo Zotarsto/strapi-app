@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_faq_categories",
+  "info": {
+    "displayName": "FAQCategory"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "requiresAuth": {
+      "type": "boolean"
+    },
+    "Questions": {
+      "type": "component",
+      "component": "shared.fa-question",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

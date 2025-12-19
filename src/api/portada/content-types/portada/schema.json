@@ -11,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "imagen_portada": {
+    "imagenPortada": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
