@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "banner_sections",
+  "info": {
+    "singularName": "banner-section",
+    "pluralName": "banner-sections",
+    "displayName": "Banner Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banners": {
+      "type": "component",
+      "component": "blocks.banner-item",
+      "repeatable": true
+    }
+  }
+}

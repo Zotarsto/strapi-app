@@ -1,5 +1,30 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksBannerItem extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_banner_items';
+  info: {
+    displayName: 'BannerItem';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    relatedLinks: Schema.Attribute.Component<'shared.banner-link', false> &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface SharedBannerLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_banner_links';
+  info: {
+    displayName: 'BannerLink';
+  };
+  attributes: {
+    redirect: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['route', 'link']> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface SharedFaQuestion extends Struct.ComponentSchema {
   collectionName: 'components_shared_fa_questions';
   info: {
@@ -41,6 +66,8 @@ export interface SharedLink extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.banner-item': BlocksBannerItem;
+      'shared.banner-link': SharedBannerLink;
       'shared.fa-question': SharedFaQuestion;
       'shared.faq-category': SharedFaqCategory;
       'shared.link': SharedLink;

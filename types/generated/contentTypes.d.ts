@@ -470,7 +470,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiAssetAsset extends Struct.SingleTypeSchema {
   collectionName: 'assets';
   info: {
-    displayName: 'asset';
+    displayName: 'imagenes';
     pluralName: 'assets';
     singularName: 'asset';
   };
@@ -481,6 +481,7 @@ export interface ApiAssetAsset extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    imagenBienvenida: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::asset.asset'> &
       Schema.Attribute.Private;
@@ -490,7 +491,34 @@ export interface ApiAssetAsset extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    welcomeView: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface ApiBannerSectionBannerSection extends Struct.SingleTypeSchema {
+  collectionName: 'banner_sections';
+  info: {
+    displayName: 'Banner Section';
+    pluralName: 'banner-sections';
+    singularName: 'banner-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banners: Schema.Attribute.Component<'blocks.banner-item', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::banner-section.banner-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -511,36 +539,6 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiPortadaPortada extends Struct.SingleTypeSchema {
-  collectionName: 'portadas';
-  info: {
-    displayName: 'Portada';
-    pluralName: 'portadas';
-    singularName: 'portada';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    imagenPortada: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::portada.portada'
-    > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -1061,8 +1059,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::asset.asset': ApiAssetAsset;
+      'api::banner-section.banner-section': ApiBannerSectionBannerSection;
       'api::faq.faq': ApiFaqFaq;
-      'api::portada.portada': ApiPortadaPortada;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

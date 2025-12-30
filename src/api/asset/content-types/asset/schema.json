@@ -4,14 +4,14 @@
   "info": {
     "singularName": "asset",
     "pluralName": "assets",
-    "displayName": "asset"
+    "displayName": "imagenes"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "welcomeView": {
+    "imagenBienvenida": {
       "type": "media",
       "multiple": false,
       "required": false,

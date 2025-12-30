@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_blocks_banner_items",
+  "info": {
+    "displayName": "BannerItem"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "relatedLinks": {
+      "type": "component",
+      "component": "shared.banner-link",
+      "repeatable": false,
+      "required": true
+    }
+  },
+  "config": {}
+}

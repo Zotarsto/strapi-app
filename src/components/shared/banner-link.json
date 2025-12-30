@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_banner_links",
+  "info": {
+    "displayName": "BannerLink"
+  },
+  "options": {},
+  "attributes": {
+    "redirect": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "route",
+        "link"
+      ]
+    }
+  },
+  "config": {}
+}
